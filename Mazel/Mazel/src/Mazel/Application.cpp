@@ -1,3 +1,4 @@
+#include "mzpch.h"
 #include "Application.h"
 
 #include "Mazel/Events/ApplicationEvent.h"

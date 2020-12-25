@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Mazel
 {
 	class MAZEL_API KeyEvent : public Event

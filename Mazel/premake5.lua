@@ -12,6 +12,9 @@ project "Mazel"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "mzpch.h"
+    pchsource "Mazel/src/mzpch.cpp"
+
     files
     {
         "%{prj.name}/src/**.h",

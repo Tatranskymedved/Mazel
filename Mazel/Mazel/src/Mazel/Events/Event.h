@@ -1,9 +1,7 @@
 #pragma once
 
+#include "mzpch.h"
 #include "Mazel/Core.h"
-
-#include <string>
-#include <functional>
 
 namespace Mazel
 {
