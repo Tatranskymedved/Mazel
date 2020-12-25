@@ -29,11 +29,11 @@ namespace Mazel
 #define MZ_CORE_INFO(...)       ::Mazel::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define MZ_CORE_WARN(...)       ::Mazel::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define MZ_CORE_ERROR(...)      ::Mazel::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define MZ_CORE_FATAl(...)      ::Mazel::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define MZ_CORE_CRITICAL(...)   ::Mazel::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 //Client log macros
 #define MZ_TRACE(...)           ::Mazel::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define MZ_INFO(...)            ::Mazel::Log::GetClientLogger()->info(__VA_ARGS__)
 #define MZ_WARN(...)            ::Mazel::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define MZ_ERROR(...)           ::Mazel::Log::GetClientLogger()->error(__VA_ARGS__)
-#define MZ_FATAl(...)           ::Mazel::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define MZ_CRITICAL(...)        ::Mazel::Log::GetClientLogger()->critical(__VA_ARGS__)
