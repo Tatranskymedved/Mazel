@@ -35,6 +35,8 @@
       <Filter>Mazel</Filter>
     </ClInclude>
     <ClInclude Include="src\mzpch.h" />
+    <ClInclude Include="src\Mazel\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mazel\Application.cpp">
@@ -44,5 +46,6 @@
       <Filter>Mazel</Filter>
     </ClCompile>
     <ClCompile Include="src\mzpch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

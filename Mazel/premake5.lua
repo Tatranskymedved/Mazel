@@ -4,6 +4,12 @@ workspace "Mazel"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to the root folder (solution dir)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Mazel/vendor/GLFW/include"
+
+include "Mazel/vendor/GLFW"
+
 project "Mazel"
     location "Mazel"
     kind "SharedLib"
@@ -24,7 +30,14 @@ project "Mazel"
     includedirs
     {
         "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.GLFW}"
+    }
+
+    links
+    {
+        "GLFW",
+        "opengl32.lib"
     }
 
     filter "system:windows"
