@@ -4,6 +4,9 @@
     <Filter Include="Mazel">
       <UniqueIdentifier>{1EA4A70D-8AB8-CFBE-533A-731EBF0DCCEF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mazel\Events">
+      <UniqueIdentifier>{42C253F3-2E25-E397-D7AA-1B4EC3ECAE1A}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Mazel.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Mazel\EntryPoint.h">
       <Filter>Mazel</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mazel\Events\ApplicationEvent.h">
+      <Filter>Mazel\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mazel\Events\Event.h">
+      <Filter>Mazel\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mazel\Events\KeyEvent.h">
+      <Filter>Mazel\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mazel\Events\MouseEvent.h">
+      <Filter>Mazel\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Mazel\Log.h">
       <Filter>Mazel</Filter>

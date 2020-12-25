@@ -1,5 +1,7 @@
 #include "Application.h"
-#include <stdio.h>
+
+#include "Mazel/Events/ApplicationEvent.h"
+#include "Mazel/Log.h"
 
 
 namespace Mazel {
@@ -13,8 +15,6 @@ namespace Mazel {
 
 	void Application::Run()
 	{
-		while (true)
-		{
-		}
+		while (true);
 	}
 }
