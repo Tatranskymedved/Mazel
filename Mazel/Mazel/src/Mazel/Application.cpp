@@ -3,6 +3,8 @@
 
 #include "Mazel/Log.h"
 
+#include <glad/glad.h>
+
 namespace Mazel
 {
 

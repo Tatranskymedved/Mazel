@@ -7,8 +7,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to the root folder (solution dir)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Mazel/vendor/GLFW/include"
+IncludeDir["Glad"] = "Mazel/vendor/Glad/include"
 
 include "Mazel/vendor/GLFW"
+include "Mazel/vendor/Glad"
 
 project "Mazel"
     location "Mazel"
@@ -31,12 +33,14 @@ project "Mazel"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}"
     }
 
     links
     {
         "GLFW",
+        "Glad",
         "opengl32.lib"
     }
 
@@ -48,7 +52,8 @@ project "Mazel"
         defines
         {
             "MZ_PLATFORM_WINDOWS",
-            "MZ_BUILD_DLL"
+            "MZ_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands
