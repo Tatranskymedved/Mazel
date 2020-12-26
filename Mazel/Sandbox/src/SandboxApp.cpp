@@ -10,7 +10,7 @@ public:
 
 	void OnUpdate() override
 	{
-		MZ_TRACE("ExampleLayer::OnUpdate()");
+		//MZ_TRACE("ExampleLayer::OnUpdate()");
 	}
 
 	void OnEvent(Mazel::Event& ev) override
@@ -25,6 +25,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Mazel::ImGuiLayer());
 	}
 	~Sandbox()
 	{}

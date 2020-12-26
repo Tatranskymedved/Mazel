@@ -4,3 +4,6 @@
 [submodule "Mazel/Mazel/vendor/GLFW"]
 	path = Mazel/Mazel/vendor/GLFW
 	url = https://github.com/TheCherno/glfw.git
+[submodule "Mazel/Mazel/vendor/imgui"]
+	path = Mazel/Mazel/vendor/imgui
+	url = https://github.com/TheCherno/imgui.git

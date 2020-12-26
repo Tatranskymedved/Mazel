@@ -21,7 +21,7 @@ namespace Mazel
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(KeyPressed)
+		EVENT_CLASS_TYPE(MouseMoved)
 			EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryMouse)
 	private:
 		float m_MouseX, m_MouseY;
@@ -44,7 +44,7 @@ namespace Mazel
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(KeyPressed)
+		EVENT_CLASS_TYPE(MouseScrolled)
 			EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryMouse)
 	private:
 		float m_XOffset, m_YOffset;
