@@ -1,13 +1,14 @@
 #pragma once
 
 #include "Core.h"
-#include "Events/Event.h"
+#include "Window.h"
+#include "Mazel/LayerStack.h"
+#include "Mazel/Layer.h"
+#include "Mazel/Events/Event.h"
 #include "Mazel/Events/ApplicationEvent.h"
 
-#include "Window.h"
-
-namespace Mazel {
-
+namespace Mazel
+{
 	class MAZEL_API Application
 	{
 	public:
@@ -17,13 +18,17 @@ namespace Mazel {
 		void Run();
 
 		void OnEvent(Event& e);
+
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* overlay);
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+		LayerStack m_LayerStack;
 	};
 
-	//Defined in a client
+	//To be defined in a client
 	Application* CreateApplication();
 }

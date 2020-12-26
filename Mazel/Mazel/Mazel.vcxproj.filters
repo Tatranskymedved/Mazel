@@ -7,6 +7,12 @@
     <Filter Include="Mazel\Events">
       <UniqueIdentifier>{42C253F3-2E25-E397-D7AA-1B4EC3ECAE1A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Mazel.h" />
@@ -31,21 +37,39 @@
     <ClInclude Include="src\Mazel\Events\MouseEvent.h">
       <Filter>Mazel\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mazel\Layer.h">
+      <Filter>Mazel</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mazel\LayerStack.h">
+      <Filter>Mazel</Filter>
+    </ClInclude>
     <ClInclude Include="src\Mazel\Log.h">
       <Filter>Mazel</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mazel\Window.h">
+      <Filter>Mazel</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\mzpch.h" />
-    <ClInclude Include="src\Mazel\Window.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mazel\Application.cpp">
       <Filter>Mazel</Filter>
     </ClCompile>
+    <ClCompile Include="src\Mazel\Layer.cpp">
+      <Filter>Mazel</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mazel\LayerStack.cpp">
+      <Filter>Mazel</Filter>
+    </ClCompile>
     <ClCompile Include="src\Mazel\Log.cpp">
       <Filter>Mazel</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\mzpch.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>
