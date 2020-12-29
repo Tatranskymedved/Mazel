@@ -7,8 +7,8 @@
 #include "Mazel/Application.h"
 
 //TODO: remove (only temporary)
-#include "GLFW/glfw3.h"
-#include "glad/glad.h"
+#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace Mazel
 {
@@ -127,7 +127,7 @@ namespace Mazel
 	bool ImGuiLayer::OnKeyPressedEvent(KeyPressedEvent& e)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.KeyMap[e.GetKeyCode()] = true;
+		io.KeysDown[e.GetKeyCode()] = true;
 
 		io.KeyCtrl = io.KeysDown[GLFW_KEY_LEFT_CONTROL] || io.KeysDown[GLFW_KEY_RIGHT_CONTROL];
 		io.KeyAlt = io.KeysDown[GLFW_KEY_LEFT_ALT] || io.KeysDown[GLFW_KEY_RIGHT_ALT];
@@ -140,7 +140,7 @@ namespace Mazel
 	bool ImGuiLayer::OnKeyReleasedEvent(KeyReleasedEvent& e)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.KeyMap[e.GetKeyCode()] = false;
+		io.KeysDown[e.GetKeyCode()] = false;
 
 		return false;
 	}

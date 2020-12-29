@@ -3,6 +3,7 @@
 
 #include "Mazel/Core.h"
 #include "Mazel/Log.h"
+#include "Mazel/Input.h"
 
 #include <glad/glad.h>
 
@@ -26,8 +27,14 @@ namespace Mazel
 	{
 		while (m_Running)
 		{
+			//Needs to be called to clear buffer, on which we can draw. Once we draw things, we can swap it with visible one.
+			glClear(GL_COLOR_BUFFER_BIT);
+
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+
+			auto [x, y] = Input::GetMousePosition();
+			MZ_CORE_TRACE("{0}, {1}", x, y);
 
 			m_Window->OnUpdate();
 		}

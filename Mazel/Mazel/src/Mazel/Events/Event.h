@@ -35,7 +35,6 @@ namespace Mazel
 
 	class MAZEL_API Event
 	{
-		friend class EventDispatcher;
 	public:
 		bool Handled = false;
 
@@ -45,7 +44,6 @@ namespace Mazel
 		virtual std::string ToString() const { return GetName(); }
 
 		inline bool IsInCategory(EventCategory category) { return GetCategoryFlags() & category; }
-	protected:
 	};
 
 	class EventDispatcher

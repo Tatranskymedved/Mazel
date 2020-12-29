@@ -15,5 +15,5 @@
 #include "Mazel/Log.h"
 
 #ifdef MZ_PLATFORM_WINDOWS
-#include <Windows.h>
+	#include <Windows.h>
 #endif

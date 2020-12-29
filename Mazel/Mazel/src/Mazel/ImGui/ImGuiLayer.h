@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Mazel/Layer.h"
 
 #include "Mazel/Events/ApplicationEvent.h"
