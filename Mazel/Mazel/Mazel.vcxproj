@@ -159,9 +159,11 @@
     <ClInclude Include="src\Mazel\Events\MouseEvent.h" />
     <ClInclude Include="src\Mazel\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Mazel\Input.h" />
+    <ClInclude Include="src\Mazel\KeyCodes.h" />
     <ClInclude Include="src\Mazel\Layer.h" />
     <ClInclude Include="src\Mazel\LayerStack.h" />
     <ClInclude Include="src\Mazel\Log.h" />
+    <ClInclude Include="src\Mazel\MouseButtonCodes.h" />
     <ClInclude Include="src\Mazel\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />

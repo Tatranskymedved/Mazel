@@ -71,6 +71,8 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\mzpch.h" />
+    <ClInclude Include="src\Mazel\KeyCodes.h" />
+    <ClInclude Include="src\Mazel\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mazel\Application.cpp">
