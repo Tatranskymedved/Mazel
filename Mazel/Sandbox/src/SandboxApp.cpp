@@ -32,7 +32,16 @@ public:
 		ImGui::Begin("Test wind");
 		if (ImGui::Button("Press me!"))
 		{
-			//Do some stuff on button press
+			ImGui::OpenPopup("ImportAssetDialog");
+		}
+		if (ImGui::BeginPopupModal("ImportAssetDialog"))
+		{
+			ImGui::Text("test");
+			if (ImGui::Button("Close"))
+			{
+				ImGui::CloseCurrentPopup();
+			}
+			ImGui::EndPopup();
 		}
 		ImGui::End();
 	}
