@@ -6,6 +6,7 @@
 #include "Mazel/Layer.h"
 #include "Mazel/Events/Event.h"
 #include "Mazel/Events/ApplicationEvent.h"
+#include "Mazel/ImGui/ImGuiLayer.h"
 
 namespace Mazel
 {
@@ -31,6 +32,7 @@ namespace Mazel
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+		ImGuiLayer* m_ImGuiLayer;
 	private:
 		static Application* s_Instance;
 	};

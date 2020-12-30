@@ -165,7 +165,6 @@
     <ClInclude Include="src\Mazel\Log.h" />
     <ClInclude Include="src\Mazel\MouseButtonCodes.h" />
     <ClInclude Include="src\Mazel\Window.h" />
-    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\mzpch.h" />
@@ -595,11 +594,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mazel\Application.cpp" />
+    <ClCompile Include="src\Mazel\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Mazel\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Mazel\Layer.cpp" />
     <ClCompile Include="src\Mazel\LayerStack.cpp" />
     <ClCompile Include="src\Mazel\Log.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\mzpch.cpp">
@@ -620,4 +619,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project>
+</Project> 

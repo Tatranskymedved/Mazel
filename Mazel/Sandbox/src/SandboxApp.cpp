@@ -1,4 +1,5 @@
 #include <Mazel.h>
+//#include <imgui/imgui.h>
 
 class ExampleLayer : public Mazel::Layer
 {
@@ -25,6 +26,13 @@ public:
 			MZ_TRACE("{0}", (char)e.GetKeyCode());
 		}
 	}
+
+	void OnImGuiRender() override
+	{
+		//ImGui::Begin("Test wind");
+		//ImGui::Button("Press me!");
+		//ImGui::End();
+	}
 };
 
 class Sandbox : public Mazel::Application
@@ -33,7 +41,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Mazel::ImGuiLayer());
+		//PushOverlay(new Mazel::ImGuiLayer());
 	}
 	~Sandbox()
 	{}

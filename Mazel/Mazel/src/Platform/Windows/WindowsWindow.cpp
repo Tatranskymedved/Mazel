@@ -39,7 +39,6 @@ namespace Mazel
 
 		if (!s_GLFWInitialized)
 		{
-			//TODO: glfwTerminate on system shut
 			int isInit = glfwInit();
 			MZ_CORE_ASSERT(isInit, "Could not initialize GLFW!");
 
@@ -151,6 +150,7 @@ namespace Mazel
 	void WindowsWindow::Shutdown()
 	{
 		glfwDestroyWindow(m_Window);
+		glfwTerminate();
 	}
 
 	void WindowsWindow::OnUpdate()
