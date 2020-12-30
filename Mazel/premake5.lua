@@ -18,9 +18,10 @@ include "Mazel/vendor/imgui"
 
 project "Mazel"
     location "Mazel"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
-    staticruntime "off"
+    cppdialect "C++17"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -35,6 +36,10 @@ project "Mazel"
         "%{prj.name}/vendor/glm/glm/**.hpp",
         "%{prj.name}/vendor/glm/glm/**.inl",
         "%{prj.name}/vendor/glm/glm/**.h",
+    }
+    defines
+    {
+        "_CRT_SECURE_NO_WARNINGS"
     }
 
     includedirs
@@ -56,7 +61,6 @@ project "Mazel"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest"
 
         defines
@@ -74,23 +78,24 @@ project "Mazel"
     filter "configurations:Debug"
         defines { "MZ_DEBUG" }
         runtime "Debug"
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         defines { "MZ_RELEASE" }
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines { "MZ_DIST" }
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
 project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"
     language "C++"
-    staticruntime "off"
+    cppdialect "C++17"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -115,7 +120,6 @@ project "Sandbox"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest"
 
         defines
@@ -126,14 +130,14 @@ project "Sandbox"
     filter "configurations:Debug"
         defines { "MZ_DEBUG" }
         runtime "Debug"
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         defines { "MZ_RELEASE" }
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines { "MZ_DIST" }
         runtime "Release"
-        optimize "On"
+        optimize "on"

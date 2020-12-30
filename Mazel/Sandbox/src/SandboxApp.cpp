@@ -1,5 +1,5 @@
 #include <Mazel.h>
-//#include <imgui/imgui.h>
+#include <imgui/imgui.h>
 
 class ExampleLayer : public Mazel::Layer
 {
@@ -29,9 +29,12 @@ public:
 
 	void OnImGuiRender() override
 	{
-		//ImGui::Begin("Test wind");
-		//ImGui::Button("Press me!");
-		//ImGui::End();
+		ImGui::Begin("Test wind");
+		if (ImGui::Button("Press me!"))
+		{
+			//Do some stuff on button press
+		}
+		ImGui::End();
 	}
 };
 
