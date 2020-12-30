@@ -10,6 +10,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Mazel/vendor/GLFW/include"
 IncludeDir["Glad"] = "Mazel/vendor/Glad/include"
 IncludeDir["ImGui"] = "Mazel/vendor/imgui"
+IncludeDir["glm"] = "Mazel/vendor/glm"
 
 include "Mazel/vendor/GLFW"
 include "Mazel/vendor/Glad"
@@ -30,7 +31,10 @@ project "Mazel"
     files
     {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+        "%{prj.name}/vendor/glm/glm/**.inl",
+        "%{prj.name}/vendor/glm/glm/**.h",
     }
 
     includedirs
@@ -39,7 +43,8 @@ project "Mazel"
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
-        "%{IncludeDir.ImGui}"
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.glm}"
     }
 
     links
@@ -99,7 +104,8 @@ project "Sandbox"
     includedirs
     {
         "Mazel/vendor/spdlog/include",
-        "Mazel/src"
+        "Mazel/src",
+        "%{IncludeDir.glm}"
     }
 
     links
