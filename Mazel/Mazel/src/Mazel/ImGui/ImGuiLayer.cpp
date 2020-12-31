@@ -2,7 +2,10 @@
 #include "ImGuiLayer.h"
 
 #include "imgui.h"
-#define IMGUI_IMPL_API
+
+#ifndef IMGUI_IMPL_API
+	#define IMGUI_IMPL_API
+#endif
 #include "examples/imgui_impl_glfw.h"
 #include "examples/imgui_impl_opengl3.h"
 

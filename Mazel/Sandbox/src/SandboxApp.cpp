@@ -53,7 +53,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		//PushOverlay(new Mazel::ImGuiLayer());
 	}
 	~Sandbox()
 	{}
