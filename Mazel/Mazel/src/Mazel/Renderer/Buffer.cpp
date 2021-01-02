@@ -15,11 +15,11 @@ namespace Mazel
 				return new OpenGLVertexBuffer(vertices, size);
 			case RendererAPI::None:
 				MZ_CORE_ASSERT(false, "VertexBuffer::Create: Selected option of RendererAPI is currently not supported.")
-				return nullptr;
+					return nullptr;
 		}
 
 		MZ_CORE_ASSERT(false, "VertexBuffer::Create: Unknown RendererAPI.")
-		return nullptr;
+			return nullptr;
 	}
 
 	IndexBuffer* IndexBuffer::Create(uint32_t* indicies, uint32_t size)
@@ -30,10 +30,22 @@ namespace Mazel
 				return new OpenGLIndexBuffer(indicies, size);
 			case RendererAPI::None:
 				MZ_CORE_ASSERT(false, "IndexBuffer::Create: Selected option of RendererAPI is currently not supported.")
-				return nullptr;
+					return nullptr;
 		}
 
 		MZ_CORE_ASSERT(false, "IndexBuffer::Create: Unknown RendererAPI.")
 			return nullptr;
+	}
+
+	void BufferLayout::CalculateOffsetsAndStride()
+	{
+		uint32_t offset = 0;
+		m_Stride = 0;
+		for (auto& element : m_Elements)
+		{
+			element.Offset = offset;
+			offset += element.Size;
+			m_Stride += element.Size;
+		}
 	}
 }
