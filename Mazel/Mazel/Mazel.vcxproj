@@ -140,6 +140,8 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Mazel\Renderer\Renderer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Mazel.h" />
     <ClInclude Include="src\Mazel\Application.h" />
     <ClInclude Include="src\Mazel\Core.h" />
@@ -585,8 +587,11 @@
     <ClInclude Include="vendor\glm\glm\vec3.hpp" />
     <ClInclude Include="vendor\glm\glm\vec4.hpp" />
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="src\Mazel\Renderer\Buffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Mazel\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Mazel\Application.cpp" />
     <ClCompile Include="src\Mazel\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Mazel\ImGui\ImGuiLayer.cpp" />
@@ -600,6 +605,7 @@
     <ClCompile Include="src\mzpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Mazel\Renderer\Buffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

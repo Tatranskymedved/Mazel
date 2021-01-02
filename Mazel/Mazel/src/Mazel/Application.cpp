@@ -4,6 +4,7 @@
 #include "Mazel/Core.h"
 #include "Mazel/Log.h"
 #include "Mazel/Input.h"
+#include "Mazel/Renderer/Buffer.h"
 
 #include <glad/glad.h>
 
@@ -26,24 +27,23 @@ namespace Mazel
 		glGenVertexArrays(1, &m_VertexArray);
 		glBindVertexArray(m_VertexArray);
 
-		glGenBuffers(1, &m_VertexBuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, m_VertexBuffer);
-
 		//Describe the data and upload them
 		float vertices[3 * 3] = {
 			-0.5f, -0.5f, 0.0f,
 			 0.5f, -0.5f, 0.0f,
 			 0.0f,  0.5f, 0.0f,
 		};
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), &vertices, GL_STATIC_DRAW);
+
+		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+		//m_VertexBuffer->Bind();
+
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 
 		//Create buffers with "indexes", that point to existing "data" (vertices). OpenGL will go over each index and draw it.
-		glGenBuffers(1, &m_IndexBuffer);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
-		unsigned int indices[3] = { 0, 1, 2 };
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+		uint32_t indicies[3] = { 0, 1, 2 };
+		m_IndexBuffer.reset(IndexBuffer::Create(indicies, sizeof(indicies) / sizeof(uint32_t)));
+		//m_IndexBuffer->Bind();
 
 		std::string vertexSrc = R"(
 			#version 330 core
@@ -90,7 +90,7 @@ namespace Mazel
 			m_Shader->Bind();
 			//To draw elements from the buffers
 			glBindVertexArray(m_VertexArray);
-			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			//Update part
 			for (Layer* layer : m_LayerStack)
