@@ -156,6 +156,7 @@
     <ClInclude Include="src\Mazel\Log.h" />
     <ClInclude Include="src\Mazel\MouseButtonCodes.h" />
     <ClInclude Include="src\Mazel\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Mazel\Renderer\Shader.h" />
     <ClInclude Include="src\Mazel\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
@@ -592,6 +593,7 @@
     <ClCompile Include="src\Mazel\Layer.cpp" />
     <ClCompile Include="src\Mazel\LayerStack.cpp" />
     <ClCompile Include="src\Mazel\Log.cpp" />
+    <ClCompile Include="src\Mazel\Renderer\Shader.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />

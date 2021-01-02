@@ -6,7 +6,10 @@
 #include "Mazel/Layer.h"
 #include "Mazel/Events/Event.h"
 #include "Mazel/Events/ApplicationEvent.h"
+
 #include "Mazel/ImGui/ImGuiLayer.h"
+
+#include "Mazel/Renderer/Shader.h"
 
 namespace Mazel
 {
@@ -35,6 +38,7 @@ namespace Mazel
 		ImGuiLayer* m_ImGuiLayer;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 	private:
 		static Application* s_Instance;
 	};

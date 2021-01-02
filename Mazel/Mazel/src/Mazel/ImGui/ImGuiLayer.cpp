@@ -61,8 +61,8 @@ namespace Mazel
 
 	void ImGuiLayer::OnImGuiRender()
 	{
-		static bool show = true;
-		ImGui::ShowDemoWindow(&show);
+		//static bool show = true;
+		//ImGui::ShowDemoWindow(&show);
 
 		//To create new window we can do there stuff like:
 		//ImGui::Begin();
