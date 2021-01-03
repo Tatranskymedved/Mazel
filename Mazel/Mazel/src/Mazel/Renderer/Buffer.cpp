@@ -11,9 +11,9 @@ namespace Mazel
 	{
 		switch (Renderer::GetAPI())
 		{
-			case RendererAPI::OpenGL:
+			case RendererAPI::API::OpenGL:
 				return new OpenGLVertexBuffer(vertices, size);
-			case RendererAPI::None:
+			case RendererAPI::API::None:
 				MZ_CORE_ASSERT(false, "VertexBuffer::Create: Selected option of RendererAPI is currently not supported.");
 				return nullptr;
 		}
@@ -26,9 +26,9 @@ namespace Mazel
 	{
 		switch (Renderer::GetAPI())
 		{
-			case RendererAPI::OpenGL:
+			case RendererAPI::API::OpenGL:
 				return new OpenGLIndexBuffer(indices, size);
-			case RendererAPI::None:
+			case RendererAPI::API::None:
 				MZ_CORE_ASSERT(false, "IndexBuffer::Create: Selected option of RendererAPI is currently not supported.")
 					return nullptr;
 		}

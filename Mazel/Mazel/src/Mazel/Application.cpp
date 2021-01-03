@@ -5,8 +5,7 @@
 #include "Mazel/Log.h"
 #include "Mazel/Input.h"
 #include "Mazel/Renderer/Buffer.h"
-
-#include <glad/glad.h>
+#include "Mazel/Renderer/Renderer.h"
 
 namespace Mazel
 {
@@ -138,16 +137,20 @@ namespace Mazel
 	{
 		while (m_Running)
 		{
-			//Needs to be called to clear buffer, on which we can draw. Once we draw things, we can swap it with visible one.
-			glClear(GL_COLOR_BUFFER_BIT);
+			RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
+			RenderCommand::Clear();
+
+			Renderer::BeginScene();
 
 			m_ShaderBlue->Bind();
-			m_SquareVA->Bind();
-			glDrawElements(GL_TRIANGLES, m_SquareVA->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::Submit(m_SquareVA);
 
 			m_Shader->Bind();
-			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::Submit(m_VertexArray);
+
+			Renderer::EndScene();
+
+
 
 			//Update part
 			for (Layer* layer : m_LayerStack)
