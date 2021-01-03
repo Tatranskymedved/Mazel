@@ -7,7 +7,7 @@ public:
 	ExampleLayer()
 		: Layer("Example")
 	{}
-	~ExampleLayer() {};
+	~ExampleLayer() = default;
 
 	void OnUpdate() override
 	{
@@ -54,9 +54,7 @@ public:
 	{
 		PushLayer(new ExampleLayer());
 	}
-	~Sandbox()
-	{}
-
+	~Sandbox() = default;
 };
 
 Mazel::Application* Mazel::CreateApplication()

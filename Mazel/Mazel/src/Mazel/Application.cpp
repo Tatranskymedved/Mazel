@@ -130,9 +130,6 @@ namespace Mazel
 		//Also there is no transform matrix to viewport, that is why we are setting it to those coords.
 	}
 
-	Application::~Application()
-	{}
-
 	void Application::Run()
 	{
 		while (m_Running)

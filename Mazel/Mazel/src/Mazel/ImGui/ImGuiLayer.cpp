@@ -19,9 +19,6 @@ namespace Mazel
 	ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer")
 	{}
 
-	ImGuiLayer::~ImGuiLayer()
-	{}
-
 	void ImGuiLayer::OnAttach()
 	{
 		//Once layer attached, we are setuping Dear ImGui Context with its settings (to properly hook all key downs | to set styles, etc.)

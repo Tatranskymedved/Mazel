@@ -19,7 +19,7 @@ namespace Mazel
 	{
 	public:
 		Application();
-		virtual ~Application();
+		virtual ~Application() = default;
 
 		void Run();
 
@@ -37,7 +37,7 @@ namespace Mazel
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-		ImGuiLayer* m_ImGuiLayer;
+		ImGuiLayer* m_ImGuiLayer; //Is deleted from ~LayerStack
 
 		//unsigned int m_VertexArray;
 		std::shared_ptr<Shader> m_Shader;
