@@ -14,27 +14,27 @@ namespace Mazel
 			case RendererAPI::OpenGL:
 				return new OpenGLVertexBuffer(vertices, size);
 			case RendererAPI::None:
-				MZ_CORE_ASSERT(false, "VertexBuffer::Create: Selected option of RendererAPI is currently not supported.")
-					return nullptr;
+				MZ_CORE_ASSERT(false, "VertexBuffer::Create: Selected option of RendererAPI is currently not supported.");
+				return nullptr;
 		}
 
-		MZ_CORE_ASSERT(false, "VertexBuffer::Create: Unknown RendererAPI.")
-			return nullptr;
+		MZ_CORE_ASSERT(false, "VertexBuffer::Create: Unknown RendererAPI.");
+		return nullptr;
 	}
 
-	IndexBuffer* IndexBuffer::Create(uint32_t* indicies, uint32_t size)
+	IndexBuffer* IndexBuffer::Create(uint32_t* indices, uint32_t size)
 	{
 		switch (Renderer::GetAPI())
 		{
 			case RendererAPI::OpenGL:
-				return new OpenGLIndexBuffer(indicies, size);
+				return new OpenGLIndexBuffer(indices, size);
 			case RendererAPI::None:
 				MZ_CORE_ASSERT(false, "IndexBuffer::Create: Selected option of RendererAPI is currently not supported.")
 					return nullptr;
 		}
 
-		MZ_CORE_ASSERT(false, "IndexBuffer::Create: Unknown RendererAPI.")
-			return nullptr;
+		MZ_CORE_ASSERT(false, "IndexBuffer::Create: Unknown RendererAPI.");
+		return nullptr;
 	}
 
 	void BufferLayout::CalculateOffsetsAndStride()

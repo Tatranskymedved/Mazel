@@ -80,8 +80,8 @@ namespace Mazel
 		}
 
 		//Create buffers with "indexes", that point to existing "data" (vertices). OpenGL will go over each index and draw it.
-		uint32_t indicies[3] = { 0, 1, 2 };
-		m_IndexBuffer.reset(IndexBuffer::Create(indicies, sizeof(indicies) / sizeof(uint32_t)));
+		uint32_t indices[3] = { 0, 1, 2 };
+		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		//m_IndexBuffer->Bind();
 
 		std::string vertexSrc = R"(

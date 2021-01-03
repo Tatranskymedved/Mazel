@@ -26,7 +26,7 @@ namespace Mazel
 	class OpenGLIndexBuffer : public IndexBuffer
 	{
 	public:
-		OpenGLIndexBuffer(uint32_t* indicies, uint32_t count);
+		OpenGLIndexBuffer(uint32_t* indices, uint32_t count);
 		virtual ~OpenGLIndexBuffer();
 
 		virtual void Bind() const override;
