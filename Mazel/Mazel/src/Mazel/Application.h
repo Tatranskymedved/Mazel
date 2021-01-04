@@ -9,11 +9,6 @@
 
 #include "Mazel/ImGui/ImGuiLayer.h"
 
-#include "Mazel/Renderer/Shader.h"
-#include "Mazel/Renderer/Buffer.h"
-#include "Mazel/Renderer/VertexArray.h"
-#include "Mazel/Renderer/OrtographicCamera.h"
-
 namespace Mazel
 {
 	class MAZEL_API Application
@@ -39,14 +34,6 @@ namespace Mazel
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 		ImGuiLayer* m_ImGuiLayer; //Is deleted from ~LayerStack
-
-		//unsigned int m_VertexArray;
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<Shader> m_ShaderBlue;
-		std::shared_ptr<VertexArray> m_VertexArray;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrtographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
