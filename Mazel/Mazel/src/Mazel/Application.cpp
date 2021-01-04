@@ -6,12 +6,17 @@
 #include "Mazel/Input.h"
 #include "Mazel/Renderer/Buffer.h"
 #include "Mazel/Renderer/Renderer.h"
+#include "Mazel/Renderer/OrtographicCamera.h"
+
+#include "Mazel/KeyCodes.h"
+#include <glm/ext/matrix_transform.hpp>
 
 namespace Mazel
 {
 	Application* Application::s_Instance = nullptr;
 
 	Application::Application()
+		: m_Camera(-1.0f, 1.0f, -1.0f, 1.0f)
 	{
 		MZ_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
@@ -19,7 +24,7 @@ namespace Mazel
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(MZ_BIND_EVENT_FN(Application::OnEvent));
 
-		m_ImGuiLayer = new ImGuiLayer();
+		m_ImGuiLayer = new ImGuiLayer(); //Is deleted from ~LayerStack
 		PushOverlay(m_ImGuiLayer);
 
 		m_VertexArray.reset(VertexArray::Create());
@@ -72,6 +77,9 @@ namespace Mazel
             
 			layout(location = 0) in vec3 a_Position;
 			layout(location = 1) in vec4 a_Color;
+
+			uniform mat4 u_ViewProjection;
+
 			out vec3 v_Position;
 			out vec4 v_Color;
 
@@ -79,7 +87,7 @@ namespace Mazel
             {
 				v_Position = a_Position;
 				v_Color = a_Color;
-                gl_Position = vec4(a_Position, 1.0);
+                gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
             }
 		)";
 		std::string fragmentWithColorSrc = R"(
@@ -104,10 +112,12 @@ namespace Mazel
 			layout(location = 0) in vec3 a_Position;
 			out vec3 v_Position;
 
+			uniform mat4 u_ViewProjection;
+
 			void main()
             {
 				v_Position = a_Position;
-                gl_Position = vec4(a_Position, 1.0);
+                gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
             }
 		)";
 		std::string fragmentWithBlueColorSrc = R"(
@@ -132,18 +142,38 @@ namespace Mazel
 
 	void Application::Run()
 	{
+		float angle = 0;
+		float ud = .0f, lr = .0f;
+
+		float rotateSpeed = 1;
+		float moveSpeed = 0.01;
+
 		while (m_Running)
 		{
+			if (Input::IsKeyPressed(MZ_KEY_Q))
+				angle -= rotateSpeed;
+			if (Input::IsKeyPressed(MZ_KEY_E))
+				angle += rotateSpeed;
+
+			if (Input::IsKeyPressed(MZ_KEY_W))
+				ud += moveSpeed;
+			if (Input::IsKeyPressed(MZ_KEY_S))
+				ud -= moveSpeed;
+			if (Input::IsKeyPressed(MZ_KEY_A))
+				lr -= moveSpeed;
+			if (Input::IsKeyPressed(MZ_KEY_D))
+				lr += moveSpeed;
+
 			RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 			RenderCommand::Clear();
 
-			Renderer::BeginScene();
+			m_Camera.SetPosition({ lr, ud, 0.0f });
+			m_Camera.SetRotation(angle);
 
-			m_ShaderBlue->Bind();
-			Renderer::Submit(m_SquareVA);
+			Renderer::BeginScene(m_Camera);
 
-			m_Shader->Bind();
-			Renderer::Submit(m_VertexArray);
+			Renderer::Submit(m_ShaderBlue, m_SquareVA);
+			Renderer::Submit(m_Shader, m_VertexArray);
 
 			Renderer::EndScene();
 

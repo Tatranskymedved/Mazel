@@ -140,6 +140,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Mazel\Renderer\OrtographicCamera.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Mazel\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Mazel\Renderer\RendererAPI.h" />
@@ -595,6 +596,7 @@
     <ClInclude Include="src\Mazel\Renderer\Buffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Mazel\Renderer\OrtographicCamera.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\Mazel\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Mazel\Renderer\RendererAPI.cpp" />

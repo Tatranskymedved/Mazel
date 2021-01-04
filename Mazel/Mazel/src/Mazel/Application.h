@@ -12,6 +12,7 @@
 #include "Mazel/Renderer/Shader.h"
 #include "Mazel/Renderer/Buffer.h"
 #include "Mazel/Renderer/VertexArray.h"
+#include "Mazel/Renderer/OrtographicCamera.h"
 
 namespace Mazel
 {
@@ -44,6 +45,8 @@ namespace Mazel
 		std::shared_ptr<Shader> m_ShaderBlue;
 		std::shared_ptr<VertexArray> m_VertexArray;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrtographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
